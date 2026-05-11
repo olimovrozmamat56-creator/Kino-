@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kino Ko'rish</title>
+    
+    <script src='//libtl.com/sdk.js' data-zone='10991122' data-sdk='show_10991122'></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f0f0f; color: white; text-align: center; padding: 20px; }
+        .container { margin-top: 50px; border: 1px solid #333; padding: 20px; border-radius: 15px; background-color: #1a1a1a; }
+        h1 { color: #e50914; }
+        .btn { background-color: #e50914; color: white; padding: 15px 30px; border: none; border-radius: 50px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 20px; width: 100%; }
+        .info { font-size: 14px; color: #aaa; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎬 Kino Premyera</h1>
+        <p>Kinoni ko'rish uchun pastdagi tugmani bosing.</p>
+        <p class="info">(Reklamadan so'ng kino avtomatik ochiladi)</p>
+        
+        <button class="btn" onclick="startAd()">🚀 KO'RISHNI BOSHLASH</button>
+    </div>
+
+    <script>
+        function startAd() {
+            // Monetag reklamasini ko'rsatish
+            show_10991122().then(() => {
+                // Reklama ko'rilgandan keyin kino linkiga o'tish
+                // Bu yerga o'z kino linkigizni qo'ying
+                window.location.href = "https://t.me/c/123456789/1"; 
+            }).catch((e) => {
+                // Reklama chiqmasa ham o'tib ketish
+                window.location.href = "https://t.me/c/123456789/1";
+            });
+        }
+    </script>
+
+</body>
+</html>
+
