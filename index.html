@@ -3,42 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kino Ko'rish</title>
-    
-    <script src='//libtl.com/sdk.js' data-zone='10991122' data-sdk='show_10991122'></script>
-
+    <title>Kino Premyera</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0f0f0f; color: white; text-align: center; padding: 20px; }
-        .container { margin-top: 50px; border: 1px solid #333; padding: 20px; border-radius: 15px; background-color: #1a1a1a; }
-        h1 { color: #e50914; }
-        .btn { background-color: #e50914; color: white; padding: 15px 30px; border: none; border-radius: 50px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 20px; width: 100%; }
-        .info { font-size: 14px; color: #aaa; margin-top: 15px; }
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #0f172a; color: white; text-align: center; }
+        .container { padding: 20px; border-radius: 15px; background: #1e293b; box-shadow: 0 4px 15px rgba(0,0,0,0.3); width: 90%; max-width: 400px; }
+        .btn { display: inline-block; padding: 15px 30px; background-color: #e11d48; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 18px; cursor: pointer; border: none; margin-top: 20px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        p { color: #94a3b8; font-size: 14px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>🎬 Kino Premyera</h1>
-        <p>Kinoni ko'rish uchun pastdagi tugmani bosing.</p>
-        <p class="info">(Reklamadan so'ng kino avtomatik ochiladi)</p>
-        
-        <button class="btn" onclick="startAd()">🚀 KO'RISHNI BOSHLASH</button>
-    </div>
+<div class="container">
+    <h2>🎬 Kino Tayyor!</h2>
+    <p>Kinoni ko'rish uchun pastdagi tugmani bosing. Reklamadan so'ng avtomatik ravishda kinoga o'tasiz.</p>
+    
+    <button onclick="startProcess()" class="btn">KINO KO'RISHNI BOSHLASH</button>
+</div>
 
-    <script>
-        function startAd() {
-            // Monetag reklamasini ko'rsatish
-            show_10991122().then(() => {
-                // Reklama ko'rilgandan keyin kino linkiga o'tish
-                // Bu yerga o'z kino linkigizni qo'ying
-                window.location.href = "https://t.me/c/123456789/1"; 
-            }).catch((e) => {
-                // Reklama chiqmasa ham o'tib ketish
-                window.location.href = "https://t.me/c/123456789/1";
-            });
-        }
-    </script>
+<script>
+    function startProcess() {
+        // 1. LINKDAN KINO MANZILINI OLISH
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieUrl = urlParams.get('url');
+
+        // 2. MONETAG REKLAMASINI OCHISH (Direct Link'ingizni shu yerga qo'ying)
+        // Agarda Direct Link bo'lmasa, hozircha bo'sh qoldiring yoki o'z link'ingizni qo'ying
+        window.open("BU_YERGA_MONETAG_DIRECT_LINK_QO'YING", "_blank");
+
+        // 3. 2 SONIYADAN KEYIN KINOGA YUBORISH
+        setTimeout(function() {
+            if (movieUrl) {
+                window.location.href = decodeURIComponent(movieUrl);
+            } else {
+                // Agar link xato bo'lsa, asosiy kanalingizga yuboradi
+                window.location.href = "https://t.me/SIZNING_KANAL_MANZILI";
+            }
+        }, 2000);
+    }
+</script>
 
 </body>
 </html>
+
+
 
